@@ -1,0 +1,24 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+
+        maven { url 'https://jitpack.io' }
+    }
+}
+rootProject.name = "Gram"
+
+include ':common'
+include ':domain:gallery'
+include ':core'
+include ':data:database'
+include ':data:pixel'
+include ':app'

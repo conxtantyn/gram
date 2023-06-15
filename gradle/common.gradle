@@ -1,0 +1,78 @@
+
+ext.modules = [
+    [':common', 'com.android.library'],
+    [':domain:gallery', 'com.android.library'],
+    [':core', 'com.android.library'],
+    [':data:database', 'com.android.library'],
+    [':data:pixel', 'com.android.library'],
+    [':app', 'com.android.application'],
+]
+
+modules.each {
+    def module = it[0]
+    def moduleId = it[1]
+    project(module) {
+        apply plugin: moduleId
+        apply plugin: 'org.jetbrains.kotlin.android'
+        apply plugin: 'kotlin-kapt'
+        apply plugin: 'kotlin-parcelize'
+        apply plugin: 'org.jlleitschuh.gradle.ktlint'
+        apply plugin: 'io.gitlab.arturbosch.detekt'
+
+        android {
+            compileSdkVersion Build.compileSdk
+                    compileOptions {
+                        sourceCompatibility JavaVersion.VERSION_1_8
+                                targetCompatibility JavaVersion.VERSION_1_8
+                    }
+            defaultConfig {
+                minSdkVersion Build.minSdk
+                        targetSdkVersion Build.targetSdk
+                        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+                versionCode Build.versionCode
+                        versionName Build.version
+            }
+
+            buildTypes {
+                release {
+                    minifyEnabled false
+                    proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+                }
+            }
+            buildFeatures {
+                viewBinding true
+            }
+            kotlinOptions {
+                jvmTarget = JavaVersion.VERSION_1_8
+            }
+            flavorDimensions 'default'
+            productFlavors {
+                mock {
+                    buildConfigField 'Boolean', 'IS_PRODUCTION_BUILD', 'false'
+                    dimension "default"
+                }
+                production {
+                    buildConfigField 'Boolean', 'IS_PRODUCTION_BUILD', 'true'
+                    dimension "default"
+                }
+            }
+        }
+        configurations {
+            cleanedAnnotations
+            implementation.exclude group: 'org.jetbrains' , module: 'annotations:13.0'
+        }
+        detekt {
+            debug = false
+            input = files("$projectDir/src/main/java")
+            config = files("$rootDir/detekt.yml")
+            reports {
+                html {
+                    enabled = true
+                }
+            }
+        }
+        ktlintCheck.dependsOn ktlintFormat
+        preBuild.dependsOn ktlintCheck
+    }
+}

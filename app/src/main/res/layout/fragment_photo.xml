@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/photoFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dp"
+        android:paddingEnd="16dp"
+        android:paddingStart="16dp"
+        android:paddingBottom="38dp">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/endInset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="16dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/iconGuide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="48dp" />
+
+        <ImageView
+            android:id="@+id/header"
+            android:layout_width="0dp"
+            android:layout_height="280dp"
+            android:contentDescription="@string/headerImage"
+            android:background="@drawable/shape_round_background_tint"
+            android:scaleType="centerCrop"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/image" />
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:contentDescription="@string/itemImage"
+            android:background="@drawable/shape_round_background"
+            android:scaleType="centerCrop"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/header"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="@color/secondary"
+            android:layout_marginTop="4dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:maxLines="2"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintTop_toTopOf="@+id/image"
+            app:layout_constraintStart_toEndOf="@+id/image"
+            app:layout_constraintEnd_toStartOf="@+id/endInset"
+            app:layout_constraintBottom_toBottomOf="@+id/image"
+            tools:text="Description"/>
+
+        <ImageView
+            android:id="@+id/locationIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/itemImage"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_location"
+            android:layout_marginTop="24dp"
+            app:tint="@color/secondary"
+            app:layout_constraintTop_toBottomOf="@+id/description"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/iconGuide"
+            app:layout_constraintBottom_toTopOf="@id/likeIcon" />
+
+        <TextView
+            android:id="@+id/location"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="@color/secondary"
+            android:gravity="center_vertical"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:maxLines="2"
+            app:layout_constraintTop_toTopOf="@+id/locationIcon"
+            app:layout_constraintStart_toEndOf="@+id/iconGuide"
+            app:layout_constraintEnd_toStartOf="@+id/endInset"
+            app:layout_constraintBottom_toBottomOf="@+id/locationIcon"
+            tools:text="Location"/>
+
+        <ImageView
+            android:id="@+id/likeIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/itemImage"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/ic_like"
+            app:tint="@color/secondary"
+            app:layout_constraintTop_toBottomOf="@+id/locationIcon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/iconGuide"
+            app:layout_constraintBottom_toBottomOf="@+id/colorIcon" />
+
+        <TextView
+            android:id="@+id/likes"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="@color/secondary"
+            android:gravity="center_vertical"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:maxLines="2"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintTop_toTopOf="@+id/likeIcon"
+            app:layout_constraintStart_toEndOf="@+id/iconGuide"
+            app:layout_constraintEnd_toStartOf="@+id/endInset"
+            app:layout_constraintBottom_toBottomOf="@+id/likeIcon"
+            tools:text="Likes"/>
+
+        <ImageView
+            android:id="@+id/colorIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/itemImage"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/ic_color"
+            app:tint="@color/secondary"
+            app:layout_constraintTop_toBottomOf="@id/likeIcon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/iconGuide"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <TextView
+            android:id="@+id/color"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="@color/secondary"
+            android:gravity="center_vertical"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:maxLines="2"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintTop_toTopOf="@+id/colorIcon"
+            app:layout_constraintStart_toEndOf="@+id/iconGuide"
+            app:layout_constraintEnd_toStartOf="@+id/endInset"
+            app:layout_constraintBottom_toBottomOf="@+id/colorIcon"
+            tools:text="Color"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/photosFragment"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:scrollbars="none"
+    android:scrollingCache="true"
+    android:paddingStart="10dp"
+    android:paddingEnd="10dp"
+    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+    tools:paddingTop="24dp"
+    tools:listitem="@layout/list_item"
+    tools:spanCount="2"
+    tools:context=".ui.gallery.photos.PhotosFragment" />

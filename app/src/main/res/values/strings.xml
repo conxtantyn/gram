@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Gram</string>
+    <string name="add_photos">Add Photos</string>
+    <string name="listItemImage">List item image</string>
+
+    <string name="retryText">Please, try again.</string>
+    <string name="errorExclamation">Ooops...</string>
+    <string name="errorMessage">We apologize for the inconvenience. We regret to inform you that your request was not successful due to an unexpected error.</string>
+
+    <string name="headerImage">Image header</string>
+    <string name="itemImage">Image</string>
+</resources>
