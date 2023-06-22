@@ -38,4 +38,4 @@ To run the tests, execute the respective Gradle tasks or use the IDE's testing c
 
 | DEMO |
 |---|
-| <img src="https://github.com/conxtantyn/gram/assets/78351447/6b82e531-f00f-4d81-b148-d95fcdd68f64" height="500" /> |
+| <video src="https://github.com/conxtantyn/gram/assets/78351447/6b82e531-f00f-4d81-b148-d95fcdd68f64" height="500" /> |
