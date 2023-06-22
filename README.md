@@ -35,3 +35,7 @@ The assessment project includes extensive testing to ensure the correctness and 
 - **Smoke Instrumented Tests**: Smoke tests are included to validate the overall functionality and integration of the application's components. These tests run on an Android device or emulator and simulate user interactions to verify the behavior of the application.
 
 To run the tests, execute the respective Gradle tasks or use the IDE's testing capabilities.
+
+| DEMO |
+|---|
+| <img src="https://github.com/conxtantyn/gram/assets/78351447/6b82e531-f00f-4d81-b148-d95fcdd68f64" height="500" /> |
